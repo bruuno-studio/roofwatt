@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-alabaster: #FAFBF7;
+  --color-morning-sky: #FFFDF5;
+  --color-botanical-mist: #EEF6EA;
+  --color-forest-ink: #1D2F23;
+  --color-moss-slate: #526859;
+  --color-sunlit-amber: #E9A033;
+  --color-sunlit-gold: #F7C65E;
+  --color-meadow-emerald: #3D8B5B;
+}
+
+:root {
+  color-scheme: light;
+  --canvas-alabaster: #FAFBF7;
+  --sky-morning: #FFFDF5;
+  --mist-botanical: #EEF6EA;
+  --ink-forest: #1D2F23;
+  --ink-moss: #526859;
+  --amber-sun: #E9A033;
+  --amber-glow: #F7C65E;
+  --emerald-meadow: #3D8B5B;
+}
+
+html {
+  background-color: var(--canvas-alabaster);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink-forest);
+  background-color: transparent;
+  overflow-x: hidden;
+}
+
+/* Translucent sunlit paper-glass surface */
+.solarpunk-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(82, 138, 95, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 12px 36px rgba(66, 102, 74, 0.06);
+}
+
+.solarpunk-subcard {
+  background: rgba(250, 251, 247, 0.72);
+  border: 1px solid rgba(82, 138, 95, 0.12);
+  border-radius: 18px;
+}
+
+/* Tactile Solarpunk system-size range slider */
+.roofwatt-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 9999px;
+  outline: none;
+  transition: box-shadow 200ms ease;
+}
+
+.roofwatt-slider:focus-visible {
+  box-shadow: 0 0 0 4px rgba(233, 160, 51, 0.24);
+}
+
+.roofwatt-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 38% 35%, #fff9e6 0%, #f5be52 55%, #e9a033 100%);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(233, 160, 51, 0.42), 0 0 0 1px rgba(82, 138, 95, 0.18);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.roofwatt-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(233, 160, 51, 0.52), 0 0 0 1px rgba(82, 138, 95, 0.24);
+}
+
+.roofwatt-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 38% 35%, #fff9e6 0%, #f5be52 55%, #e9a033 100%);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(233, 160, 51, 0.42), 0 0 0 1px rgba(82, 138, 95, 0.18);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Ultra-subtle foreground botanical sway (6s–10s ease-in-out infinite) */
+@keyframes roofwatt-sway-slow {
+  0%,
+  100% {
+    transform: rotate(-1.2deg) translateX(0px);
+  }
+  50% {
+    transform: rotate(1.4deg) translateX(3px);
+  }
+}
+
+@keyframes roofwatt-sway-mid {
+  0%,
+  100% {
+    transform: rotate(1.1deg) translateX(0px);
+  }
+  50% {
+    transform: rotate(-1.3deg) translateX(-2px);
+  }
+}
+
+@keyframes roofwatt-sway-gentle {
+  0%,
+  100% {
+    transform: rotate(1.5deg) translateX(0px);
+  }
+  50% {
+    transform: rotate(-1.1deg) translateX(-3px);
+  }
+}
+
+@keyframes roofwatt-mote-float {
+  0% {
+    transform: translate3d(0, 14px, 0) scale(0.85);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.55;
+  }
+  55% {
+    transform: translate3d(8px, -22px, 0) scale(1.06);
+    opacity: 0.42;
+  }
+  85% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate3d(-4px, -48px, 0) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.roofwatt-sway-slow {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: roofwatt-sway-slow 9.6s ease-in-out infinite;
+}
+
+.roofwatt-sway-mid {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: roofwatt-sway-mid 7.8s ease-in-out infinite;
+}
+
+.roofwatt-sway-gentle {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: roofwatt-sway-gentle 6.8s ease-in-out infinite;
+}
+
+.roofwatt-mote {
+  animation: roofwatt-mote-float 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes roofwatt-panel-glint {
+  0%,
+  72% {
+    transform: translateX(-120px) skewX(-24deg);
+    opacity: 0;
+  }
+  82% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(260px) skewX(-24deg);
+    opacity: 0;
+  }
+}
+
+.roofwatt-panel-glint {
+  animation: roofwatt-panel-glint 7.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roofwatt-sway-slow,
+  .roofwatt-sway-mid,
+  .roofwatt-sway-gentle,
+  .roofwatt-mote,
+  .roofwatt-panel-glint {
+    animation: none !important;
+  }
+
+  .roofwatt-mote {
+    opacity: 0.24;
+  }
+}

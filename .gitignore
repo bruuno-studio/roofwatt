@@ -1,0 +1,24 @@
+# Dependencies & build output
+node_modules/
+dist/
+.wrangler/
+.next/
+.cloudflare/
+.vinext/
+*.tsbuildinfo
+
+# Local secrets & environment files (NEVER commit private keys)
+.env
+.env.local
+.env.*.local
+.dev.vars
+.dev.vars.*
+
+# Yarn PnP cache & state (recreated cleanly via `corepack yarn install`)
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
